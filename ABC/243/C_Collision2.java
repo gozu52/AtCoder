@@ -1,9 +1,7 @@
 import java.util.*;
-import java.awt.*;
 
-public class C_Collision2 {
-    //解説AC
-	public static void main(String[] args) {
+public class C_Collision2 {	
+    public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[][] xy = new int[n][2];
@@ -13,20 +11,22 @@ public class C_Collision2 {
         }
         String s = sc.next();
         sc.close();
-        Point p = new Point(-1,Integer.MAX_VALUE);
-        Map<Integer, Point> map = new HashMap<>();
+        Map<Integer, Rng> map = new HashMap<>();
         for(int i=0;i<n;i++){
-            Point pt;
-            if(map.containsKey(xy[i][1]))pt = map.get(xy[i][1]);
-            else pt = p;
-            if(s.charAt(i)=='L')pt.x = Math.max(pt.x, xy[i][0]);
-            else pt.y = Math.min(pt.y, xy[i][0]);
-            if(pt.y<pt.x){
+            Rng rng;
+            if(map.containsKey(xy[i][1]))rng = map.get(xy[i][1]);
+            else rng = new Rng();
+            if(s.charAt(i)=='L')rng.l = Math.max(rng.l, xy[i][0]);
+            else rng.r = Math.min(rng.r, xy[i][0]);
+            if(rng.r<rng.l){
                 System.out.println("Yes");
                 return;
             }
-            map.put(xy[i][1], pt);
+            map.put(xy[i][1], rng);
         }
         System.out.println("No");
+    }
+    static class Rng{
+        int r = Integer.MAX_VALUE, l = Integer.MIN_VALUE;
     }
 }
