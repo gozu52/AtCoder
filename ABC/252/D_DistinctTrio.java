@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class D_DistinctTrio {
-    public void main(String[] args){
+    public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] a = new int[n];
@@ -19,7 +19,7 @@ public class D_DistinctTrio {
     }
     static long calc(int x, int y){
         long num = 1;
-        for(int i=0;i<=y;i++)num = num * (x-i+1) / i;
+        for(int i=1;i<=y;i++)num = num * (x-i+1) / i;
         return num;
     }
 }
