@@ -11,8 +11,6 @@ const int INF = 1e9;
 const ll INFL = 1e18;
 const int dx[4] = {1,0,-1,0};
 const int dy[4] = {0,1,0,-1};
-// cout<<fixed<<setprecision(10);
-// priority_queue<int,vector<int>,greater<int>> pq;
 int n,m,a[1000];
 
 ll reppow(ll x,ll n, ll MOD){
